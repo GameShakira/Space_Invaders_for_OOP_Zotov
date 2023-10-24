@@ -19,34 +19,34 @@ def start_game():
     pygame.init()
     screen = pygame.display.set_mode((600, 700))
     pygame.display.set_caption("Space Y")
-    character = Character(screen, 0, 0)
-    x = 0
+    character = Character(screen)
+    
 
     flag = True 
     while flag:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
-            elif event.type == pygame.KEYDOWN:
-             if event.key == pygame.K_LEFT:
-                motion = LEFT
-             if event.key == pygame.K_RIGHT:
-                motion = RIGHT
-            elif event.type == pygame.KEYUP:
-             if event.key in [pygame.K_LEFT,
-                         pygame.K_RIGHT]:
-                motion = STOP
-                
-
-             if motion == LEFT:
-              x -= 3
-              print("a")
-             elif motion == RIGHT:
-              x += 3
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_d:
+                    character.move_right = True
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_d:
+                    character.move_right = False
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_a:
+                    character.move_left = True
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_a:
+                    character.move_left = False
+            if event.type == pygame.KEYDOWN:
+                 if event.key == pygame.K_w:
+                  character.shoot()        
 
         character.output()
         pygame.display.flip()
+        character.moving(screen)
         
-pygame.display.update()
+
 
 start_game()
