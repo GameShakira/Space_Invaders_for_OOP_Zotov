@@ -13,8 +13,21 @@ def start_game ():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RIGHT:
+                    hero.move_right = True
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_RIGHT:
+                    hero.move_right = False
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    hero.move_left = True
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT:
+                    hero.move_left = False
 
-            pygame.display.flip()
-            hero.output()
+        hero.output()
+        pygame.display.flip()
+        hero.moving(screen)
 
 start_game()

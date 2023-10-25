@@ -1,4 +1,4 @@
-1import pygame
+import pygame
 
 class MainCharacter():
     def __init__(self, screen):
@@ -11,3 +11,12 @@ class MainCharacter():
 
     def output(self):
         self.screen.blit(self.image, self.rect)
+
+    def moving(self, screen):
+        '''движение героя по оси Х'''
+        if self.move_right and self.rect.right < self.screen_rect.right:
+            self.rect.centerx += 1
+        if self.move_left and self.rect.left > 0:
+            self.rect.centerx -= 1
+        '''обновление экрана после движения для избавления от растягивая изображения'''
+        screen.fill(0)
