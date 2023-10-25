@@ -1,4 +1,4 @@
-import pygame
+1import pygame
 
 class MainCharacter():
     def __init__(self, screen):
