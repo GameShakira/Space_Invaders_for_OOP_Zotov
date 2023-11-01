@@ -22,9 +22,3 @@ class Character():
         if self.move_left and self.rect.left > 0:
             self.rect.centerx -= 1
         screen.fill(0)
-
-
-   def shoot(self):
-    bullet = bullet(self.rect.centerx, self.rect.top)
-    all_sprites.add(bullet)
-    bullets.add(bullet)

@@ -23,31 +23,13 @@ def start_game():
 
     flag = True 
     while flag:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-
-        character.events()
-            
-
-        character.output()
+        controls.events(screen, maincharacter, bullets)
+        maincharacter.output()
         pygame.display.flip()
-        character.moving(screen)
-        
-        screen.fill(0)
-        for bullet in bullets.sprites():
-            bullet.draw_bullet()
-        
-        character.output()
-        pygame.display.flip()
+        maincharacter.moving(screen)
 
-        bullets.update()
-        for bullet in bullets.copy():
-            if bullet.rect.bottom <= 0:
-                bullet.remove(bullet)
-
-
-
-
+        controls.update(screen, maincharacter, enemys, bullets)
+        controls.update_bullets(screen, enemys,bullets)
+        controls.update_enemys(stats, screen, maincharacter, enemys, bullets)
 
 start_game()

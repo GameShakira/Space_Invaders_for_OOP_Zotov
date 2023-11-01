@@ -1,19 +1,20 @@
 import pygame
 
 class Bullet(pygame.sprite.Sprite):
-    def __init__(self, x, y):
-        pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((10, 20))
-        self.image.fill(BLUE)
-        self.rect = self.image.get_rect()
-        self.rect.bottom = y
-        self.rect.centerx = x
-        self.speedy = -10
+
+    def __init__(self, screen, maincharacter):
+        super(Bullet, self).__init__()
+        self.screen = screen
+        self.rect = pygame.Rect(0, 0, 4, 12)
+        self.color = 77, 109, 243
+        self.speed = 4.5
+        self.rect.centerx = maincharacter.rect.centerx
+        self.rect.top = maincharacter.rect.top
+        self.y = float(self.rect.y)
 
     def update(self):
-        self.rect.y += self.speedy
-        if self.rect.bottom < 0:
-            self.kill()
+        self.y -= self.speed
+        self.rect.y = self.y
 
-
-bullets = pygame.sprite.Group()
+    def draw_bullet(self):
+        pygame.draw.rect(self.screen, self.color, self.rect)
