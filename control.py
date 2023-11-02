@@ -28,8 +28,8 @@ def update(screen, hero, enemy, bullets):
     screen.fill(0)
     for bullet in bullets.sprites():
         bullet.draw_bullet()
-    Character.output()
-    Enemy.draw(screen)
+    hero.output()
+    enemy.draw(screen)
     pygame.display.flip()
 
 

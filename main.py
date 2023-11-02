@@ -1,6 +1,6 @@
 import pygame
 from hero import Character
-from control import controls
+import control
 from enemy import Enemy
 from stats import Stats
 
@@ -22,13 +22,13 @@ def start_game():
 
     flag = True 
     while flag:
-        controls.events(screen, character, bullets)
+        control.events(screen, character, bullets)
         character.output()
         pygame.display.flip()
         character.moving(screen)
 
-        controls.update(screen, character, Enemy, bullets)
-        controls.update_bullets(screen, Enemy,bullets)
-        controls.update_enemys(Stats, screen, character, Enemy, bullets)
+        control.update(screen, character, Enemy, bullets)
+        control.update_bullets(screen, Enemy,bullets)
+        control.update_enemys(Stats, screen, character, Enemy, bullets)
 
 start_game()
