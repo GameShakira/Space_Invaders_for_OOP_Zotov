@@ -1,10 +1,8 @@
 import pygame
-import sys
 from hero import Character
-from pygame.sprite import Group
-from bullet import Bullet
 from control import controls
 from enemy import Enemy
+from stats import Stats
 
 
 #██╗░░░░░░█████╗░██╗░░░██╗███████╗
@@ -31,6 +29,6 @@ def start_game():
 
         controls.update(screen, character, Enemy, bullets)
         controls.update_bullets(screen, Enemy,bullets)
-        controls.update_enemys(stats, screen, character, Enemy, bullets)
+        controls.update_enemys(Stats, screen, character, Enemy, bullets)
 
 start_game()

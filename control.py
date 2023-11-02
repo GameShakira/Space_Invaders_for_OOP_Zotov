@@ -1,7 +1,7 @@
 import pygame, sys
 from bullet import Bullet
 from enemy import Enemy
-from hero import character
+from hero import Character
 import time
 
 
@@ -28,7 +28,7 @@ def update(screen, hero, enemy, bullets):
     screen.fill(0)
     for bullet in bullets.sprites():
         bullet.draw_bullet()
-    character.output()
+    Character.output()
     Enemy.draw(screen)
     pygame.display.flip()
 
