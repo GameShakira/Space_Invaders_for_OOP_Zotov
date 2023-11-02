@@ -3,7 +3,8 @@ import sys
 from hero import Character
 from pygame.sprite import Group
 from bullet import Bullet
-from control import events
+from control import controls
+from enemy import Enemy
 
 
 #██╗░░░░░░█████╗░██╗░░░██╗███████╗
@@ -23,13 +24,13 @@ def start_game():
 
     flag = True 
     while flag:
-        controls.events(screen, maincharacter, bullets)
-        maincharacter.output()
+        controls.events(screen, character, bullets)
+        character.output()
         pygame.display.flip()
-        maincharacter.moving(screen)
+        character.moving(screen)
 
-        controls.update(screen, maincharacter, enemys, bullets)
-        controls.update_bullets(screen, enemys,bullets)
-        controls.update_enemys(stats, screen, maincharacter, enemys, bullets)
+        controls.update(screen, character, Enemy, bullets)
+        controls.update_bullets(screen, Enemy,bullets)
+        controls.update_enemys(stats, screen, character, Enemy, bullets)
 
 start_game()
