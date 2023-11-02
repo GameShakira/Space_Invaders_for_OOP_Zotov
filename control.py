@@ -26,8 +26,8 @@ def events(screen, maincharacter, bullets):
 
 def update(screen, hero, enemy, bullets):
     screen.fill(0)
-    for bullet in bullets.sprites():
-        bullet.draw_bullet()
+    for bullets in bullets.sprites():
+        print("Иди нахуй")
     hero.output()
     enemy.draw(screen)
     pygame.display.flip()

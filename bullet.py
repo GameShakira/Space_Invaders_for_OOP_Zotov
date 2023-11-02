@@ -2,14 +2,14 @@ import pygame
 
 class Bullet(pygame.sprite.Sprite):
 
-    def __init__(self, screen, maincharacter):
+    def __init__(self, screen, character):
         super(Bullet, self).__init__()
         self.screen = screen
         self.rect = pygame.Rect(0, 0, 4, 12)
-        self.color = 77, 109, 243
+        self.image = pygame.image.load("images/img2.png")
         self.speed = 4.5
-        self.rect.centerx = maincharacter.rect.centerx
-        self.rect.top = maincharacter.rect.top
+        self.rect.centerx = character.rect.centerx
+        self.rect.top = character.rect.top
         self.y = float(self.rect.y)
 
     def update(self):
