@@ -9,17 +9,18 @@ def start_game():
     screen = pygame.display.set_mode((1000, 800))
     pygame.display.set_caption("SpaxeX by Pushkova")
     maincharacter = MainCharacter(screen)
-    enemy = Enemy(screen)
+    enemys = Group()
     bullets = Group()
 
     flag = True
     while flag:
         controls.events(screen, maincharacter, bullets)
+
         maincharacter.output()
         pygame.display.flip()
         maincharacter.moving(screen)
 
-        controls.update(screen, maincharacter, bullets)
-        controls.update_bullets(screen,bullets)
+        controls.update(screen, enemys, maincharacter, bullets)
+        controls.update_bullets(screen,bullets, enemys)
 
 start_game()
